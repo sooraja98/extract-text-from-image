@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<!-- Code By Webdevtrick ( https://webdevtrick.com )-->
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Image Upload Preview | Webdevtrick.com</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+<link rel="stylesheet" href="./style.css">
+<style>
+.container{
+  margin-left:auto;
+  margin-right:auto;  
+  margin-top:calc(calc(100vh - 405px)/2);
+}
+#form1{
+  width:auto;
+}
+.alert{
+  text-align:center;
+}
+ 
+#preview{  
+  max-height:256px;
+  height:auto;
+  width:auto;
+  display:block;
+  margin-left: auto;
+   margin-right: auto;
+  padding:5px;
+}
+#img_container{
+  border-radius:5px;
+  margin-top:20px;
+  width:auto;  
+}
+.input-group{  
+  margin-left:calc(calc(100vw - 100%)/2);
+  margin-top:40px;
+  width:320px;
+  margin-left: 187px;
+}
+.imgInp{  
+  width:150px;
+  margin-top:10px;
+  padding:10px;
+  background-color:#d3d3d3;  
+}
+.loading{
+   animation:blinkingText ease 2.5s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #000;    }     
+    50%{   color: transparent; }
+    99%{    color:transparent;  }
+    100%{ color:#000; }
+}
+.custom-file-label{
+  cursor:pointer;
+}
+#inputGroupFile01{
+    margin-left: 100px;
+}
+.button-72 {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(rgba(179, 132, 201, .84), rgba(57, 31, 91, .84) 50%);
+  border-radius: 42px;
+  border-width: 0;
+  box-shadow: rgba(57, 31, 91, 0.24) 0 2px 2px,rgba(179, 132, 201, 0.4) 0 8px 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  font-family: Quicksand,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: .04em;
+  line-height: 16px;
+  margin: 0;
+  padding: 18px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px,rgba(255, 255, 255, 0.2) 0 0 12px,rgba(57, 31, 91, 0.6) 1px 1px 4px,rgba(57, 31, 91, 0.32) 4px 4px 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+}
+
+.button-72:hover {
+  background-image: linear-gradient(#B384C9, #391F5B 50%);
+}
+
+@media (min-width: 768px) {
+  .button-72 {
+    font-size: 9px;
+    padding: 18px 34px;
+    margin-left: 400px;
+    margin-top: 12px;
+  }
+}
+textarea{
+    margin-left: 80px;
+    margin-top: 12px;
+}
+body{
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(37,132,244,1) 100%);
+}
+</style>
+</head>
+<body>
+    <div class="container animated bounce">
+    <form action="extractfromimage" method="post" enctype="multipart/form-data" >
+        <div class="alert"></div>
+        <div id='img_container'><img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image" title=''/></div>
+        <div class="input-group"> 
+        <div class="custom-file">
+        <input type="file" name="file" accept="image/+" required id="inputGroupFile01" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+        </div>
+        <button class="button-72">Extract Text From Imgae</button>
+    </form>
+    
+    <textarea cols="100" rows="10">
+        <%=data%>
+    </textarea>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script  src="./function.js"></script>
+</body>
+</html>
